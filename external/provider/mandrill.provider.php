@@ -83,8 +83,11 @@
 				$html = file_get_contents( $template );
 				$html = str_replace('%email-site%', $site->urlTo('/'), $html);
 				$html = str_replace('%email-body%', $contents, $html);
-				foreach ($message->replacements as $shortcode => $value) {
-					$html = str_replace($shortcode, $value, $html);
+
+				if($message->replacements) {
+					foreach ($message->replacements as $shortcode => $value) {
+						$html = str_replace($shortcode, $value, $html);
+					}
 				}
 			} else {
 				$html = $contents;

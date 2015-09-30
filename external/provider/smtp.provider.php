@@ -21,14 +21,14 @@
 
 				$mail = new PHPMailer;
 
-				$mail->isSMTP();                                 // Set mailer to use SMTP
-				$mail->Host = get_item($options, 'host');  		 // Specify main and backup server
-				$mail->Port = get_item($options, 'port');  		 // Specify main and backup server
-				$mail->SMTPAuth = true;                          // Enable SMTP authentication
-				// $mail->SMTPDebug = true;                      // Enable SMTP debug
-				$mail->Username = get_item($options, 'user');    // SMTP username
-				$mail->Password = get_item($options, 'pass');    // SMTP password
-				$mail->SMTPSecure = 'tls';                       // Enable encryption, 'ssl' also accepted
+				$mail->isSMTP();
+				$mail->Host = get_item($options, 'host');
+				$mail->Port = get_item($options, 'port');
+				$mail->SMTPAuth = get_item($options, 'auth', true);
+				$mail->SMTPDebug = get_item($options, 'debug', false);
+				$mail->Username = get_item($options, 'user');
+				$mail->Password = get_item($options, 'pass');
+				$mail->SMTPSecure = get_item($options, 'encryption', 'tls');
 
 				if ( is_array($message->from) ) {
 					foreach ($message->from as $email => $name) {

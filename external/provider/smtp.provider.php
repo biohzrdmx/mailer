@@ -29,6 +29,7 @@
 				$mail->Username = get_item($options, 'user');
 				$mail->Password = get_item($options, 'pass');
 				$mail->SMTPSecure = get_item($options, 'encryption', 'tls');
+				$mail->CharSet = get_item($options, 'charset', 'UTF-8');
 
 				if ( is_array($message->from) ) {
 					foreach ($message->from as $email => $name) {

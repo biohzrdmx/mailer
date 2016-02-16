@@ -178,6 +178,11 @@
 					'inline_css' => true,
 					'images' => $images
 				);
+				# Use SSL always
+				curl_setopt($mandrill->ch, CURLOPT_SSL_VERIFYHOST, 2);
+				curl_setopt($mandrill->ch, CURLOPT_SSL_VERIFYPEER, true);
+				curl_setopt($mandrill->ch, CURLOPT_CAINFO, dirname(__FILE__) . '/cacert.pem');
+				#
 				$async = false;
 				$ip_pool = get_item($options, 'pool', 'Main Pool');
 				$send_at = '';

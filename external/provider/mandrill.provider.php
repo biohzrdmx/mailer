@@ -183,7 +183,7 @@
 				curl_setopt($mandrill->ch, CURLOPT_SSL_VERIFYPEER, true);
 				curl_setopt($mandrill->ch, CURLOPT_CAINFO, dirname(__FILE__) . '/cacert.pem');
 				#
-				$async = false;
+				$async = get_item($options, 'async', false);
 				$ip_pool = get_item($options, 'pool', 'Main Pool');
 				$send_at = '';
 				$result = $mandrill->messages->send($message, $async, $ip_pool, $send_at);

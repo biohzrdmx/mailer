@@ -155,7 +155,7 @@
 				);
 			}
 			# Include library
-			include_once $site->baseDir('/lib/Mandrill/Mandrill.php');
+			include_once $site->baseDir('/external/lib/Mandrill/Mandrill.php');
 			#
 			try {
 				$mandrill = new Mandrill( get_item($options, 'key', '') );

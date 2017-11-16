@@ -16,7 +16,7 @@
 			global $site;
 			$ret = false;
 			try {
-				include_once $site->baseDir('/lib/PHPMailer/PHPMailerAutoload.php');
+				include_once $site->baseDir('/external/lib/PHPMailer/PHPMailerAutoload.php');
 				# Format body
 
 				$mail = new PHPMailer;
